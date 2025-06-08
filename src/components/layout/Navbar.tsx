@@ -11,20 +11,20 @@ import { ThemeToggle } from '../theme-toggle';
 // Add HamburgerMenu component
 const HamburgerMenu = ({ isOpen }: { isOpen: boolean }) => {
   return (
-    <div className="flex flex-col justify-center items-center w-8 h-8 relative">
+    <div className="flex flex-col justify-center items-center w-6 h-6 relative">
       <motion.span
-        className="w-8 h-0.5 bg-current absolute"
-        animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
+        className="w-6 h-0.5 bg-current absolute"
+        animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       />
       <motion.span
-        className="w-8 h-0.5 bg-current absolute"
+        className="w-6 h-0.5 bg-current absolute"
         animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       />
       <motion.span
-        className="w-8 h-0.5 bg-current absolute"
-        animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
+        className="w-6 h-0.5 bg-current absolute"
+        animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       />
     </div>
@@ -44,6 +44,23 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   // Prefetch all routes on mount
   useEffect(() => {
@@ -124,13 +141,13 @@ export default function Navbar() {
     <>
       <nav
         className={cn(
-          'fixed top-0 left-0 w-full z-50 py-7 px-7 md:px-10 transition-all duration-300',
+          'fixed top-0 left-0 w-full z-50 py-5 px-4 sm:py-7 sm:px-7 md:px-10 transition-all duration-300',
           scrolled || isMenuOpen ? 'bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60' : 'bg-transparent'
         )}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
-          <Link href="/" className="text-3xl font-light z-50">
+          <Link href="/" className="text-2xl sm:text-3xl font-light z-50">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -189,80 +206,76 @@ export default function Navbar() {
             </Link>
           </MagneticButton>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden z-50 p-2 focus:outline-none hover:opacity-80 transition-opacity"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            <HamburgerMenu isOpen={isMenuOpen} />
-          </button>
+          {/* Mobile Menu Controls */}
+          <div className="flex items-center gap-4 md:hidden z-50">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="focus:outline-none hover:opacity-80 transition-opacity"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              <HamburgerMenu isOpen={isMenuOpen} />
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            className="fixed inset-0 bg-background/95 backdrop-blur-sm z-40 flex flex-col justify-center items-center"
-            variants={overlayVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-          >
+          <>
             <motion.div
-              className="flex flex-col gap-8 items-center"
-              variants={menuVariants}
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40"
               initial="closed"
               animate="open"
               exit="closed"
+              variants={overlayVariants}
+            />
+            <motion.div
+              className="fixed inset-x-0 top-[4.5rem] p-6 bg-background/80 backdrop-blur-sm z-40 border-t border-border"
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
             >
-              {menuItems.map((item, index) => (
+              <div className="flex flex-col gap-4">
+                {menuItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    custom={index}
+                    variants={menuItemVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                  >
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "block text-xl py-2 transition-all duration-300",
+                        pathname === item.href ? "opacity-100" : "opacity-60"
+                      )}
+                    >
+                      {item.text}
+                    </Link>
+                  </motion.div>
+                ))}
                 <motion.div
-                  key={index}
-                  custom={index}
+                  custom={menuItems.length}
                   variants={menuItemVariants}
                   initial="closed"
                   animate="open"
                   exit="closed"
                 >
                   <Link
-                    href={item.href}
-                    className={cn(
-                      "text-3xl transition-all duration-300",
-                      pathname === item.href ? "opacity-100" : "opacity-60 hover:opacity-100"
-                    )}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.text}
-                  </Link>
-                </motion.div>
-              ))}
-
-              <motion.div
-                custom={menuItems.length}
-                variants={menuItemVariants}
-                initial="closed"
-                animate="open"
-                exit="closed"
-                className="flex flex-col items-center gap-4"
-              >
-                <ThemeToggle />
-                <MagneticButton>
-                  <Link
                     href="/contact"
-                    className={cn(
-                      "text-xl px-6 py-3 mt-6 border border-current rounded-full transition-all duration-300",
-                      "hover:bg-primary hover:text-primary-foreground hover:border-primary"
-                    )}
-                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-xl py-2 text-primary"
                   >
                     Let&apos;s talk
                   </Link>
-                </MagneticButton>
-              </motion.div>
+                </motion.div>
+              </div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

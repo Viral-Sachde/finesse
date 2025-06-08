@@ -107,16 +107,91 @@
     @apply border-border;
   }
   html {
-    @apply scroll-smooth;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
-    @apply bg-background text-foreground font-suisse antialiased min-h-screen;
+    @apply bg-background text-foreground font-suisse antialiased min-h-screen overflow-x-hidden;
+    touch-action: manipulation;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Mobile-first responsive text sizes */
+  .h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight;
+  }
+  
+  .h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-light leading-tight;
+  }
+  
+  .h3 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-light leading-tight;
+  }
+  
+  .body-large {
+    @apply text-lg sm:text-xl leading-relaxed;
+  }
+  
+  .body {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+  
+  .body-small {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+
+  /* Mobile touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  /* Safe area insets for modern mobile browsers */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Custom scrollbar for desktop */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
   }
 }
 
@@ -145,4 +220,11 @@
   pointer-events: none;
   z-index: 9998;
   transition: transform 0.1s, width 0.3s, height 0.3s;
+}
+
+/* Better touch scrolling */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
 }
