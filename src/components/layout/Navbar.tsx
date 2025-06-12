@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
 import MagneticButton from '../animation/MagneticButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -44,6 +46,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const { theme } = useTheme();
 
   // Close menu on route change
   useEffect(() => {
@@ -147,13 +150,20 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
-          <Link href="/" className="text-2xl sm:text-3xl font-light z-50">
+          <Link href="/" className="relative z-50">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+              className="relative w-[60px] h-[60px] sm:w-[200px] sm:h-[70px]"
             >
-              FINESSE
+              <Image
+                src={theme === 'dark' ? '/darkf.png' : '/lightf.png'}
+                alt="Finesse Logo"
+                fill
+                className="object-contain "
+                priority
+              />
             </motion.div>
           </Link>
 
