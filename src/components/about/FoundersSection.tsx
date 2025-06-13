@@ -5,17 +5,17 @@ import Image from 'next/image';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const founders = [
-  {
-    name: "Viral Sachde",
-    role: "Founder & Software Developer",
-    image: "/v.jpeg",
-    description: "A passionate software developer with expertise in modern web technologies and system architecture. Leading the technical vision and innovation at FINESSE Solutions.",
-    social: {
-      github: "https://github.com/viralsachde",
-      linkedin: "https://linkedin.com/in/viral-sachde",
-      twitter: "https://twitter.com/viralsachde"
-    }
-  },
+  // {
+  //   name: "Viral Sachde",
+  //   role: "Founder & Software Developer",
+  //   image: "/v.jpeg",
+  //   description: "A passionate software developer with expertise in modern web technologies and system architecture. Leading the technical vision and innovation at FINESSE Solutions.",
+  //   social: {
+  //     github: "https://github.com/viralsachde",
+  //     linkedin: "https://linkedin.com/in/viral-sachde",
+  //     twitter: "https://twitter.com/viralsachde"
+  //   }
+  // },
   {
     name: "Bhautik Prajapati",
     role: "Co-Founder & Software Developer",

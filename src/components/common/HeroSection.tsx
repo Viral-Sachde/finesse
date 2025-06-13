@@ -55,7 +55,7 @@ export default function HeroSection() {
         </TextReveal>
 
         <TextReveal delay={0.4}>
-          <p className="text-lg md:text-xl lg:text-2xl font-light mb-12 max-w-3xl text-muted-foreground">
+          <p className="text-lg md:text-xl lg:text-2xl font-light mb-12 max-w-3xl ">
             At Finesse, we build next-gen digital products that transform businesses.
             From scalable software to smart systems — your idea, our code.
           </p>

@@ -202,8 +202,8 @@ export default function Navbar() {
             <Link
               href="/contact"
               className={cn(
-                "text-lg px-6 py-3 border border-current rounded-full transition-all duration-300",
-                "hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                "text-lg px-6 py-3 rounded-full transition-all duration-300",
+                "hover:bg-primary hover:text-primary-foreground "
               )}
             >
               <motion.div
