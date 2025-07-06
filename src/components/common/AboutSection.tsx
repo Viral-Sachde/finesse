@@ -78,7 +78,7 @@ export default function AboutSection() {
           <div>
             <TextReveal>
               <p className="text-lg md:text-xl leading-relaxed mb-8 text-muted-foreground">
-                We're a passionate team of developers, designers, and problem-solvers dedicated to creating impactful digital solutions. Founded by Bhautik Prajapati and Viral Sachde, FINESSE Solutions is more than a company — it's a mindset focused on innovation, quality, and growth.
+                We're a passionate team of developers, designers, and problem-solvers dedicated to creating impactful digital solutions. Founded by Bhautik Prajapati and Viral Sachde, The Finesse Co is more than a company — it's a mindset focused on innovation, quality, and growth.
               </p>
             </TextReveal>
           </div>

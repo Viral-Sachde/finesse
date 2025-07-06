@@ -7,8 +7,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import ClientProviders from '@/components/providers/ClientProviders'
 
 export const metadata: Metadata = {
-  title: 'FINESSE Solutions | Empowering Your Vision with Innovative IT Solutions',
-  description: 'At FINESSE Solutions, we build next-gen digital products that transform businesses. From scalable software to smart systems — your idea, our code.',
+  title: 'The Finesse Co | Absolute Tech Building, No BS, Just Product',
+  description: 'At The Finesse Co, we build next-gen digital products that transform businesses. From scalable software to smart systems — your idea, our code.',
 }
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

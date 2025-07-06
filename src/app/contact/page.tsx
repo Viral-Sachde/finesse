@@ -39,11 +39,11 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-xl font-light mb-2">Email</h3>
-                <p className="text-muted-foreground">contact@finesse.in</p>
+                <p className="text-muted-foreground">connect.thefinesseco@gmail.com</p>
               </div>
               <div>
                 <h3 className="text-xl font-light mb-2">Location</h3>
-                <p className="text-muted-foreground">Bangalore, India</p>
+                <p className="text-muted-foreground">Vadodara, Gujarat</p>
               </div>
             </div>
           </motion.div>

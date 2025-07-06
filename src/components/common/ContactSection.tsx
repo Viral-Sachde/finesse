@@ -89,24 +89,20 @@ export default function ContactSection() {
             <TextReveal delay={0.2}>
               <p className="text-lg opacity-80 mb-10">
                 Ready to turn your idea into reality?
-                Let's connect and explore how FINESSE Solutions can bring your vision to life.
+                Let's connect and explore how The Finesse Co can bring your vision to life.
               </p>
             </TextReveal>
 
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-medium mb-2">Email</h3>
-                <p className="opacity-80">hello@finesse.in</p>
+                <p className="opacity-80">connect.thefinesseco@gmail.com</p>
               </div>
 
-              <div>
-                <h3 className="text-lg font-medium mb-2">Phone</h3>
-                <p className="opacity-80">+91-XXXXXXX</p>
-              </div>
 
               <div>
                 <h3 className="text-lg font-medium mb-2">Location</h3>
-                <p className="opacity-80">Gujarat, India</p>
+                <p className="opacity-80">Vadodara, Gujarat</p>
               </div>
             </div>
           </div>

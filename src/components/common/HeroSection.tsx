@@ -26,7 +26,7 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full h-screen flex flex  dark:bg-[url('/bg-1.webp')] bg-cover bg-top  sm:bg-center  justify-center items-center overflow-hidden"
+      className="relative w-full h-screen flex flex pt-6 md:pt-[135px]  dark:bg-[url('/bg-1.webp')] bg-cover bg-top  sm:bg-center  justify-center items-center overflow-hidden"
     >
       <div className="absolute inset-0 w-full h-full z-0">
         <video

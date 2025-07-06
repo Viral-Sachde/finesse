@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
+
 import MagneticButton from '../animation/MagneticButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -46,7 +47,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const { theme } = useTheme();
+
+  const { theme, resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (resolvedTheme) {
+      console.log("Current theme is:", resolvedTheme);
+    }
+  }, [resolvedTheme]);
 
   // Close menu on route change
   useEffect(() => {
@@ -140,6 +148,15 @@ export default function Navbar() {
     }),
   };
 
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // or a skeleton/placeholder
+
   return (
     <>
       <nav
@@ -158,12 +175,14 @@ export default function Navbar() {
               className="relative w-[60px] h-[60px] sm:w-[200px] sm:h-[70px]"
             >
               <Image
-                src={theme === 'dark' ? '/darkf.png' : '/lightf.png'}
+                src={resolvedTheme === 'dark' ? '/darkf.png' : '/lightf.png'}
+
                 alt="Finesse Logo"
                 fill
                 className="object-contain "
                 priority
               />
+
             </motion.div>
           </Link>
 
@@ -202,8 +221,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               className={cn(
-                "text-lg px-6 py-3 rounded-full transition-all duration-300",
-                "hover:bg-primary hover:text-primary-foreground "
+                "text-lg  rounded-full transition-all duration-300"
               )}
             >
               <motion.div

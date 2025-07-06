@@ -9,18 +9,18 @@ const founders = [
     name: "Viral Sachde",
     role: "Founder & Software Developer",
     image: "/v.jpeg",
-    description: "A passionate software developer with expertise in modern web technologies and system architecture. Leading the technical vision and innovation at FINESSE Solutions.",
+    description: "A passionate software developer with expertise in modern web technologies and system architecture. Leading the technical vision and innovation at The Finesse Co.",
     social: {
-      github: "https://github.com/viralsachde",
-      linkedin: "https://linkedin.com/in/viral-sachde",
-      twitter: "https://twitter.com/viralsachde"
+      github: "https://github.com/Viral-Sachde",
+      linkedin: "https://linkedin.com/in/viral-sachde-18664b24b",
+      twitter: "https://twitter.com/viralpullls"
     }
   },
   {
     name: "Bhautik Prajapati",
     role: "Co-Founder & Software Developer",
     image: "/b.jpeg",
-    description: "Full-stack developer specializing in scalable applications and innovative solutions. Driving technical excellence and project delivery at FINESSE Solutions.",
+    description: "Full-stack developer specializing in scalable applications and innovative solutions. Driving technical excellence and project delivery at The Finesse Co.",
     social: {
       github: "https://github.com/bhautikprajapati",
       linkedin: "https://linkedin.com/in/bhautik-prajapati",
@@ -38,7 +38,7 @@ export default function FoundersSection() {
       className="mt-24"
     >
       <h2 className="text-3xl md:text-4xl font-light mb-12">Meet Our Founders</h2>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {founders.map((founder, index) => (
           <motion.div
@@ -88,7 +88,7 @@ export default function FoundersSection() {
                 </div>
               </div>
             </div>
-            
+
             <div className="max-w-lg">
               <h3 className="text-2xl font-medium mb-2">{founder.name}</h3>
               <p className="text-primary mb-4">{founder.role}</p>

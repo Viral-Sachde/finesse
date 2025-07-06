@@ -169,12 +169,12 @@ export async function generateMetadata({ params }: ServiceParams): Promise<Metad
 
   if (!service) {
     return {
-      title: 'Service Not Found | FINESSE Solutions',
+      title: 'Service Not Found | The Finesse Co',
     };
   }
 
   return {
-    title: `${service.title} | FINESSE Solutions`,
+    title: `${service.title} | The Finesse Co`,
     description: service.description,
   };
 }

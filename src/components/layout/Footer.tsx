@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         {/* CTA buttons */}
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-20 sm:mb-32 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -139,16 +139,6 @@ export default function Footer() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="mb-4 sm:mb-6"
-            >
-              <p className="text-base sm:text-lg">+91-XXXXXXX</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
@@ -156,28 +146,10 @@ export default function Footer() {
             </motion.div>
           </div>
         </div>
-
-        {/* Newsletter signup */}
-        <div className="mb-12 sm:mb-20 border-t border-border pt-8 sm:pt-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 sm:gap-8">
-            <h3 className="text-lg sm:text-xl">Sign up for our newsletter (No spam)</h3>
-            <div className="flex items-stretch w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="bg-background border border-border px-4 py-3 w-full md:w-64 focus:outline-none focus:border-primary transition-colors text-base"
-              />
-              <button className="bg-primary text-primary-foreground px-4 py-3 hover:bg-primary/90 transition-colors text-base whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Copyright and bottom links */}
         <div className="flex flex-col sm:flex-row justify-between items-center border-t border-border pt-8 sm:pt-12 text-center sm:text-left">
           <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
-            © {new Date().getFullYear()} FINESSE Solutions. All rights reserved.
+            © {new Date().getFullYear()} The Finesse Co. All rights reserved.
           </p>
 
           <div className="flex gap-6">

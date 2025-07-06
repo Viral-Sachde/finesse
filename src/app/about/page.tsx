@@ -13,7 +13,7 @@ export default function AboutPage() {
         className="max-w-6xl mx-auto"
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8">About FINESSE</h1>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -23,8 +23,8 @@ export default function AboutPage() {
           >
             <h2 className="text-2xl font-light mb-4">Our Vision</h2>
             <p className="text-muted-foreground">
-              At FINESSE Solutions, we envision a future where technology seamlessly integrates with human creativity. 
-              Our mission is to transform innovative ideas into powerful digital solutions that drive business growth 
+              At The Finesse Co, we envision a future where technology seamlessly integrates with human creativity.
+              Our mission is to transform innovative ideas into powerful digital solutions that drive business growth
               and enhance user experiences.
             </p>
           </motion.div>
@@ -37,8 +37,8 @@ export default function AboutPage() {
           >
             <h2 className="text-2xl font-light mb-4">Our Approach</h2>
             <p className="text-muted-foreground">
-              We combine cutting-edge technology with creative design thinking to deliver solutions that not only 
-              meet but exceed expectations. Our team of experts brings years of experience in software development, 
+              We combine cutting-edge technology with creative design thinking to deliver solutions that not only
+              meet but exceed expectations. Our team of experts brings years of experience in software development,
               UI/UX design, and digital transformation.
             </p>
           </motion.div>
