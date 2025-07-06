@@ -133,7 +133,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-4 sm:mb-6"
             >
-              <p className="text-base sm:text-lg">hello@finesse.in</p>
+              <p className="text-base sm:text-lg">connect.thefinesseco@gmail.com</p>
             </motion.div>
 
             <motion.div
